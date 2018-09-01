@@ -36,7 +36,7 @@ namespace Microsoft.Bot.Builder.Dialogs.Tests
             var dialogState = convoState.CreateProperty<DialogState>("dialogState");
 
             var adapter = new TestAdapter()
-                .Use(convoState);
+                .Use(new BotStateMiddleware(convoState));
 
             var dialogs = new DialogSet(dialogState);
 
@@ -73,7 +73,7 @@ namespace Microsoft.Bot.Builder.Dialogs.Tests
             var dialogState = convoState.CreateProperty<DialogState>("dialogState");
 
             var adapter = new TestAdapter()
-                .Use(convoState);
+                .Use(new BotStateMiddleware(convoState));
 
             var dialogs = new DialogSet(dialogState);
 
@@ -124,7 +124,7 @@ namespace Microsoft.Bot.Builder.Dialogs.Tests
             var dialogState = convoState.CreateProperty<DialogState>("dialogState");
 
             var adapter = new TestAdapter()
-                .Use(convoState);
+                .Use(new BotStateMiddleware(convoState));
 
             var dialogs = new DialogSet(dialogState);
 
@@ -175,7 +175,7 @@ namespace Microsoft.Bot.Builder.Dialogs.Tests
             var dialogState = convoState.CreateProperty<DialogState>("dialogState");
 
             var adapter = new TestAdapter()
-                .Use(convoState);
+                .Use(new BotStateMiddleware(convoState));
 
             var dialogs = new DialogSet(dialogState);
 

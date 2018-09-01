@@ -12,13 +12,13 @@ namespace Microsoft.Bot.Builder
     ///  Middleware that will call `read()` and `write()` in parallel on multiple `BotState`
     ///  instances.
     /// </summary>
-    public class BotStateSet : IMiddleware
+    public class BotStateMiddleware : IMiddleware
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="BotStateSet"/> class.
+        /// Initializes a new instance of the <see cref="BotStateMiddleware"/> class.
         /// </summary>
         /// <param name="botStates">initial list of <see cref="BotState"/> objects to manage.</param>
-        public BotStateSet(params BotState[] botStates)
+        public BotStateMiddleware(params BotState[] botStates)
         {
             BotStates.AddRange(botStates);
         }
@@ -33,8 +33,8 @@ namespace Microsoft.Bot.Builder
         /// Add a BotState to the list of sources to load.
         /// </summary>
         /// <param name="botState">botState to manage.</param>
-        /// <returns>botstateset for chaining more .Use().</returns>
-        public BotStateSet Use(BotState botState)
+        /// <returns>BotStateMiddleware for chaining more .Use().</returns>
+        public BotStateMiddleware Use(BotState botState)
         {
             BotStates.Add(botState);
             return this;
